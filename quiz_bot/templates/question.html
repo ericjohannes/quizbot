@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>QuizBot!</h1>
+    <p>Generate a multiple choice quiz from a Wikipedia article.</p>
+    <form action="/" method="post">
+        {% csrf_token %}
+
+        <div>
+          <label for="article_name">Article name: </label>
+          <input id="article_name" type="text" name="article_name" value="">
+        </div>
+        <div>
+          <label for="number">How many questions should I generate? (Between 1 and 4)</label>
+        </div>
+        <input type="number" id="number" name="number" min="1" max="4" value="1" />
+
+        <div>
+          <fieldset>
+              <legend>Choose a difficulty level:</legend>
+            
+              <div>
+                <input type="radio" id="easy" name="level" value="easy" checked />
+                <label for="easy">Easy</label>
+              </div>
+            
+              <div>
+                <input type="radio" id="medium" name="level" value="medium" />
+                <label for="medium">Medium</label>
+              </div>
+            
+              <div>
+                <input type="radio" id="hard" name="level" value="hard" />
+                <label for="hard">Hard</label>
+              </div>
+            </fieldset>
+          </div>
+        <input type="submit" value="Get Questions!">
+    </form>
+
+</body>
+</html>
